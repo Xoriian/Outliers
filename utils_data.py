@@ -52,6 +52,14 @@ def get_labels():
 
     return labels[:limit].astype(int), labels[limit:].astype(int)
 
+# Fusionner les phrases et les labels
+def merge_data_labels(data, labels):
+    merged = []
+    for i in range(len(data)):
+        merged.append((data[i], labels[i][1]))
+
+    return merged
+
 # Affichage d'une image
 def display_data(data, labels, k):
     print(f"{k} - Phrase : {data[k]} | Label : {labels[k]}")
@@ -84,4 +92,18 @@ one_hot_val = to_one_hot(labels_val, NB_CLASSES)
 
 #print(one_hot_train[:10])
 
+# %% [markdown]
+# ### Fonction d'enregistrement des résultats
+
+# %%
+# Permet d'enregistrer les résultats sous le format voulu par Kaggle
+def save_results(predictions, name):
+    results = np.empty((len(test), 2), dtype = int)
+
+    # Enregistrement des résultats
+    for i, prediction in enumerate(predictions):
+        results[i][0] = i
+        results[i][1] = prediction
+
+    np.savetxt(dossier + name + '.csv', results, fmt='%d', delimiter=',', header='Index,Class', comments='')
 
