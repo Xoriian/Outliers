@@ -32,7 +32,7 @@ def get_data():
 
 # Récupération des données de test
 def get_test():
-    file = dossier + "train_data.csv"
+    file = dossier + "test_data.csv"
     with open(file, encoding="utf-8") as f:
         lines = f.readlines()
     data = lines[1:]
@@ -105,5 +105,5 @@ def save_results(predictions, name):
         results[i][0] = i
         results[i][1] = prediction
 
-    np.savetxt(dossier + name + '.csv', results, fmt='%d', delimiter=',', header='Index,Class', comments='')
+    np.savetxt(dossier + name + '.csv', results, fmt='%d', delimiter=',', header='id,target', comments='')
 
