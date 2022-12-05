@@ -19,7 +19,7 @@ else:
 
 # %%
 # Récupération des données de train et de validation
-def get_data():
+def get_data_split():
     file = dossier + "train_data.csv"
     with open(file, encoding="utf-8") as f:
         lines = f.readlines()
@@ -29,6 +29,16 @@ def get_data():
     limit = int(len(data) * 0.8) + 1 # Séparation entre les données de train et de validation (80% - 20%)
 
     return data[:limit], data[limit:]
+
+def get_data():
+    file = dossier + "train_data.csv"
+    with open(file, encoding="utf-8") as f:
+        lines = f.readlines()
+    data = lines[1:]
+    for i, string in enumerate(data):
+        _, data[i] = string.split(',', 1)
+
+    return data
 
 # Récupération des données de test
 def get_test():
@@ -42,7 +52,7 @@ def get_test():
     return data
 
 # Récupération des labels des données de train et de validation
-def get_labels():
+def get_labels_split():
     labels = np.loadtxt(dossier + "train_results.csv", delimiter=",", dtype=str)
     labels = labels[1:]
     labels[labels[: , 1] == 'negative', 1] = 0
@@ -52,6 +62,15 @@ def get_labels():
 
     return labels[:limit].astype(int), labels[limit:].astype(int)
 
+def get_labels():
+    labels = np.loadtxt(dossier + "train_results.csv", delimiter=",", dtype=str)
+    labels = labels[1:]
+    labels[labels[: , 1] == 'negative', 1] = 0
+    labels[labels[: , 1] == 'neutral', 1] = 1
+    labels[labels[: , 1] == 'positive', 1] = 2
+
+    return labels.astype(int)
+
 # Fusionner les phrases et les labels
 def merge_data_labels(data, labels):
     merged = []
@@ -59,10 +78,6 @@ def merge_data_labels(data, labels):
         merged.append((data[i], labels[i][1]))
 
     return merged
-
-# Affichage d'une image
-def display_data(data, labels, k):
-    print(f"{k} - Phrase : {data[k]} | Label : {labels[k]}")
 
 # %% [markdown]
 # ### Fonction de transformation des labels en format "One Hot"
