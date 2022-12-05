@@ -63,17 +63,6 @@ def merge_data_labels(data, labels):
 # Affichage d'une image
 def display_data(data, labels, k):
     print(f"{k} - Phrase : {data[k]} | Label : {labels[k]}")
- 
-
-# %%
-# Récupération des données
-train, val = get_data()
-test = get_test()
-labels_train, labels_val = get_labels()
-
-# Test et affichage d'une donnée
-#nombre = int(np.random.uniform(0, len(train), 1))
-#display_data(train, labels_train, nombre)
 
 # %% [markdown]
 # ### Fonction de transformation des labels en format "One Hot"
@@ -81,16 +70,11 @@ labels_train, labels_val = get_labels()
 # %%
 # Permet de transformer un label "y" en label "one-hot" : labels[y] = 1 et labels[z != y] = 0
 def to_one_hot(labels, nb_classes):
-    one_hot_labels = np.zeros((labels.shape[0], nb_classes))
-    for i, label in enumerate(labels[:, 1]):
+    one_hot_labels = np.zeros((len(labels), nb_classes))
+    for i, label in enumerate(labels):
         one_hot_labels[i][label] = 1
         
     return one_hot_labels
-
-one_hot_train = to_one_hot(labels_train, NB_CLASSES)
-one_hot_val = to_one_hot(labels_val, NB_CLASSES)
-
-#print(one_hot_train[:10])
 
 # %% [markdown]
 # ### Fonction d'enregistrement des résultats
@@ -98,7 +82,7 @@ one_hot_val = to_one_hot(labels_val, NB_CLASSES)
 # %%
 # Permet d'enregistrer les résultats sous le format voulu par Kaggle
 def save_results(predictions, name):
-    results = np.empty((len(test), 2), dtype = int)
+    results = np.empty((len(predictions), 2), dtype = int)
 
     # Enregistrement des résultats
     for i, prediction in enumerate(predictions):
