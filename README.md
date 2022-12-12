@@ -11,12 +11,16 @@ Ce code contient différents algorithmes de *Machine Learning* pour la classific
 - Transformer
 
 ## 3. Fonctionnement du code
+### 3.a Exécution des fichiers .py
 Pour faire fonctionner le code, il faut tout d'abord s'assurer que le fichier .py contenant les fonctions utilitaires, *utils_data.py* est bien inclus dans le même dossier (ou dans l'environnement d'exécution pour Google Colab). Il suffit ensuite de lancer toutes les cellules du code souhaité.
+
+### 3.b Explicabilité (modèle de RNN seulement)
+Le code associé à l'explicabilité (à travers les matrices de confusion et l'algorithme *LIME*) est directement inclus dans le fichier .py du RNN, à la fin du fichier *RNN.py*. Il suffit donc de lancer toutes les cellules pour exécuter le code associé à l'explicabilité. Deux librairies seront téléchargées pour cela (*lime* et *scikit-plot*) au début du fichier.
 
 **Pour les algorithmes 3 et 4** : il est fortement recommandé de lancer le code sur *Google Colab* avec un run GPU, sinon l'exécution sera (trop) lente. L'exécution avec *Google Colab* est déjà gérée dans le code, prenez juste soin de bien mettre le jeu de données dans un dossier de votre *Drive*.
 
 ## 4. Hyperparamètres des algorithmes
-Les hyperparamètres choisis par défaut sont ceux ayant donnés les meilleurs résultats lors des tests. Pour modifier un hyperparamètre, il faut le changer directement dans le code.
+Les hyperparamètres choisis par défaut sont ceux ayant donnés les meilleurs résultats lors des tests. Pour modifier un hyperparamètre, il faut le changer directement dans le code (dans la cellule correspondante)
 
 ## 5. Références
 Nous avons utilisé les sources suivantes pour nos implémentations : 
