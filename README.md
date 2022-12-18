@@ -14,10 +14,10 @@ Ce code contient différents algorithmes de *Machine Learning* pour la classific
 ### 3.a Consultation des fichiers .ipynb
 Les fichiers soumis sur Gradescope sont des fichiers .py. Pour consulter leur version .ipynb et ensuite les exécuter sur Google Colab (pour les modèles nécessitant un GPU ainsi que pour le classifieur de Bayes), vous pouvez suivre directement ce lien : https://github.com/Xoriian/Outliers. Chaque fichier .py contient le lien du même fichier (en version .ipynb) sur Google Colab.
 
-### 3.a Exécution des fichiers .py
+### 3.b Exécution des fichiers .py
 Chaque modèle est défini par son propre fichier .py. Pour faire fonctionner les codes du RNN et du Transformer, il faut tout d'abord s'assurer que le fichier .py contenant les fonctions utilitaires, *utils_data.py* est bien inclus dans le même dossier (ou dans l'environnement d'exécution pour Google Colab). Il suffit ensuite de lancer toutes les cellules du code souhaité.
 
-### 3.b Explicabilité (modèle de RNN seulement)
+### 3.c Explicabilité (modèle de RNN seulement)
 Le code associé à l'explicabilité (à travers les matrices de confusion et l'algorithme *LIME*) est directement inclus dans le fichier .py du RNN, à la fin du fichier *RNN.py*. Il suffit donc de lancer toutes les cellules pour exécuter le code associé à l'explicabilité. Deux librairies seront téléchargées pour cela (*lime* et *scikit-plot*) au début du fichier.
 
 ### 4. Recommandations
