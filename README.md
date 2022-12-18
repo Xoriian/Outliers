@@ -17,6 +17,8 @@ Pour faire fonctionner le code, il faut tout d'abord s'assurer que le fichier .p
 ### 3.b Explicabilité (modèle de RNN seulement)
 Le code associé à l'explicabilité (à travers les matrices de confusion et l'algorithme *LIME*) est directement inclus dans le fichier .py du RNN, à la fin du fichier *RNN.py*. Il suffit donc de lancer toutes les cellules pour exécuter le code associé à l'explicabilité. Deux librairies seront téléchargées pour cela (*lime* et *scikit-plot*) au début du fichier.
 
+**Pour l'algorithme 1** : le jeu de données doit se trouver dans un fichier *data* dans votre dossier *Drive*
+
 **Pour les algorithmes 3 et 4** : il est fortement recommandé de lancer le code sur *Google Colab* avec un run GPU, sinon l'exécution sera (trop) lente. L'exécution avec *Google Colab* est déjà gérée dans le code, prenez juste soin de bien mettre le jeu de données dans un dossier de votre *Drive*.
 
 ## 4. Hyperparamètres des algorithmes
@@ -26,3 +28,5 @@ Les hyperparamètres choisis par défaut sont ceux ayant donnés les meilleurs r
 Nous avons utilisé les sources suivantes pour nos implémentations : 
 - Code inspiré de https://coderzcolumn.com/tutorials/artificial-intelligence/pytorch-rnn-for-text-classification-tasks pour le GRU et l'explicabilité.
 - Code inspiré de https://n8henrie.com/2021/08/writing-a-transformer-classifier-in-pytorch/ pour le Transformer.
+- Code inspiré de https://github.com/AarohiSingla/Multinomial-Naive-Bayes/blob/master/news_classifier_unseen_input.ipynb et https://www.ritchieng.com/machine-learning-multinomial-naive-bayes-vectorization/ pour le classifier de Byes naif
+
